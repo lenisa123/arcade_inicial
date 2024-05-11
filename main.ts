@@ -1,0 +1,12 @@
+let statusbar = statusbars.create(20, 4, StatusBarKind.Health)
+let frente = sprites.create(assets.image`player_frente`, SpriteKind.Player)
+let feio = sprites.create(assets.image`feio`, SpriteKind.Enemy)
+feio.setPosition(0, 0)
+feio.setVelocity(5, 5)
+frente.setPosition(8, 102)
+feio.follow(frente, 15)
+scene.setBackgroundImage(assets.image`floor`)
+forever(function () {
+    statusbar.setPosition(frente.x, frente.y - 15)
+    controller.moveSprite(frente)
+})
